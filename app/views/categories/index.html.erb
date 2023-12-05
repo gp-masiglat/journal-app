@@ -1,0 +1,14 @@
+<div class="w-screen flex justify-center">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="w-4/5 flex flex-col items-center mt-6">
+    <label class="font-bold text-4xl">Categories</label>
+    <%= link_to "+", new_category_path, class: "rounded-full py-1 px-3 bg-blue-600 text-white font-medium text-3xl mt-2" %>
+    <div id="categories" class="w-full m-2 flex flex-wrap">
+      <%= render @categories %>
+    </div>
+  </div>
+
+</div>

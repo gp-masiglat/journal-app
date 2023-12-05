@@ -67,6 +67,3 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
-group :development do
-  gem "rails_live_reload"
-end

@@ -1,0 +1,25 @@
+<div id="<%= dom_id category %>" class=" w-full flex flex-col items-center border-black border-dashed border-2 m-4">
+  <% if action_name == "show" %>
+    <label class="my-8 font-black text-3xl">Category Information</label>
+  <% end %>
+  
+  <p class="my-5 flex flex-col items-center">
+    <strong class="font-bold text-xl mb-1">Category name:</strong>
+    <%= category.category_name %>
+  </p>
+
+  <p class="my-5 flex flex-col items-center">
+    <strong class="font-bold text-xl mb-1">Category details:</strong>
+    <%= category.category_details %>
+
+  </p>
+  <p class="my-3">
+    <strong class="font-bold text-xl mb-1">Owner:</strong>
+    User <%= category.user_id %>
+
+  </p>
+  <% if action_name != "show" %>
+    <%= link_to "Show this category", category, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
