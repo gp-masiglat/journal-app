@@ -1,18 +1,20 @@
 class CategoriesController < ApplicationController
+  before_action :require_login
   before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    @categories = current_user.categories.includes(:task)
   end
 
   # GET /categories/1 or /categories/1.json
   def show
+    @tasks = @category.task
   end
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = current_user.categories.build
   end
 
   # GET /categories/1/edit
@@ -21,7 +23,7 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.new(category_params)
 
     respond_to do |format|
       if @category.save
@@ -67,4 +69,10 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:category_name, :category_details, :user_id)
     end
+
+    def require_login
+    unless current_user
+      redirect_to login_path, notice: 'You need to log in to access that page!'
+    end
+  end
 end

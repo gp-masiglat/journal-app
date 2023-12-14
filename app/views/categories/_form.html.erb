@@ -23,7 +23,7 @@
 
   <div class="my-5 hidden">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", value: 1 %>
+    <%= form.number_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", value: current_user.id %>
   </div>
 
   <div class="inline">

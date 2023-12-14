@@ -6,6 +6,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
+    debugger
     get categories_url
     assert_response :success
   end
